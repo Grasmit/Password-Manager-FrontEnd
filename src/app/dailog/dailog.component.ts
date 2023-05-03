@@ -60,14 +60,23 @@ export class DailogComponent {
           },
         });
       }
+    } else {
+      this.updatePassword();
     }
-    // else
-    // {
-    //   this.updateProduct()
-    // }
+  }
 
-    // updateProduct(){
-
-    // }
+  updatePassword() {
+    this.api
+      .putPassword(this.passwordForm.value, this.editData.userId)
+      .subscribe({
+        next: (res) => {
+          alert('Password updated');
+          this.passwordForm.reset();
+          this.dailogRef.close('Updated');
+        },
+        error: () => {
+          alert('Error while updating');
+        },
+      });
   }
 }

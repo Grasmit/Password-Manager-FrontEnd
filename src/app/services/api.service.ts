@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.get<any>('https://localhost:7190/api/Demo');
   }
 
-  putPassword(data: any) {
-    return this.http.put<any>('https://localhost:7190/api/Demo', data);
+  putPassword(data: any, id: number) {
+    return this.http.put<any>('https://localhost:7190/api/Demo/' + id, data);
   }
 
   deletePassword(id: number) {

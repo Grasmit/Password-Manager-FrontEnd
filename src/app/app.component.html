@@ -63,7 +63,11 @@
             <button mat-icon-button (click)="editPassword(row)" color="primary">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn">
+            <button
+              (click)="deletePassword(row.userId)"
+              mat-icon-button
+              color="warn"
+            >
               <mat-icon>delete</mat-icon>
             </button>
           </td>
