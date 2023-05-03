@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Add Password Form</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="passwordForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput disabled value="{Id}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" placeholder=" Select Category">
+        <mat-option value="work">Work</mat-option>
+        <mat-option value="school">School</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Application</mat-label>
+      <input
+        formControlName="app"
+        matInput
+        placeholder="Enter Application Name"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>User Name</mat-label>
+      <input
+        formControlName="userName"
+        matInput
+        placeholder="Enter User Name"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        formControlName="password"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="addPassword()">
+    Save {{ actionButton }}
+  </button>
+
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="warm"
+    mat-dialog-close
+  >
+    Close
+  </button>
+</div>
